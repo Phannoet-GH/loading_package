@@ -10,8 +10,9 @@ A lightweight and customizable loading indicator package for Flutter application
 ## Features
 
 - ⚡ **Lightweight & Fast**: Minimal dependencies, easy to plug into any Flutter app.
-- 🎨 **Highly Customizable**: Customize colors, dimensions, stroke widths, and animations.
+- 🎨 **Highly Customizable**: Customize colors, dimensions, stroke widths, and styling.
 - 💬 **Status Messages**: Option to display descriptive loading messages beneath the indicator.
+- 🪟 **Popup Dialogs**: Built-in modal popup helper (`PopupLoading.show`) for async tasks.
 - 📱 **Multi-Platform**: Seamlessly works on Android, iOS, Web, macOS, Windows, and Linux.
 
 ---
@@ -68,7 +69,7 @@ LoadingIndicator(
   size: 50.0,
   color: Colors.blueAccent,
   strokeWidth: 4.0,
-  message: 'Loading data, please wait...',
+  message: 'Loading data...',
   messageStyle: TextStyle(
     fontSize: 16.0,
     color: Colors.grey[700],
@@ -85,7 +86,7 @@ Display a modal loading popup dialog during asynchronous operations:
 // Show popup loading dialog
 PopupLoading.show(
   context,
-  message: 'Please wait...',
+  message: 'Loading data...',
 );
 
 // Perform async task...
@@ -111,16 +112,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Loading Package Example'),
+          title: const Text('Loading Example'),
+          centerTitle: true,
         ),
         body: const Center(
           child: LoadingIndicator(
-            size: 45.0,
-            color: Colors.deepPurple,
-            strokeWidth: 4.0,
-            message: 'Fetching information...',
+            message: 'Loading data...',
           ),
         ),
       ),
@@ -133,14 +133,29 @@ class MyApp extends StatelessWidget {
 
 ## Properties
 
+### `LoadingIndicator`
+
 | Property | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `size` | `double` | `40.0` | The diameter/dimension of the loading indicator. |
+| `size` | `double` | `40.0` | The diameter/dimension of the progress indicator. |
 | `color` | `Color?` | `Theme primary` | Color of the progress spinner. |
 | `strokeWidth` | `double` | `4.0` | Thickness of the spinner stroke. |
 | `message` | `String?` | `null` | Optional text message displayed under the spinner. |
 | `messageStyle` | `TextStyle?` | `null` | Text styling for the optional loading message. |
 | `spacing` | `double` | `16.0` | Spacing between the indicator and the message. |
+
+### `PopupLoading.show`
+
+| Parameter | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `context` | `BuildContext` | *required* | The build context to present the dialog. |
+| `message` | `String?` | `null` | Text message displayed inside the popup card. |
+| `barrierDismissible` | `bool` | `false` | Whether tapping outside dismisses the dialog. |
+| `barrierColor` | `Color` | `Colors.black54` | Barrier backdrop color. |
+| `backgroundColor` | `Color?` | `Theme surface` | Background color of the popup card. |
+| `indicatorColor` | `Color?` | `Theme primary` | Color of the loading indicator spinner. |
+| `size` | `double` | `40.0` | Diameter of the loading indicator spinner. |
+| `borderRadius` | `double` | `16.0` | Corner radius of the popup dialog card. |
 
 ---
 
