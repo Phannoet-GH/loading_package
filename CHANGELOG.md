@@ -1,3 +1,4 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Initial release of `loading_package`.
+* Added customizable loading indicator widgets for Flutter applications.

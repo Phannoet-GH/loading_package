@@ -1,7 +1,9 @@
 name: loading_package
 description: "This package is used to show loading indicator in flutter application."
 version: 1.0.0
-homepage:
+homepage: "https://github.com/Phannoet-GH/loading_package"
+repository: "https://github.com/Phannoet-GH/loading_package"
+issue_tracker: "https://github.com/Phannoet-GH/loading_package/issues"
 
 environment:
   sdk: ^3.12.2
